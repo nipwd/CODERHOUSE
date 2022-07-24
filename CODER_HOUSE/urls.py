@@ -27,5 +27,7 @@ urlpatterns = [
     path('teamForm/', equiposFormulario, name='teamForm'),
     path('driversForm/', pilotosFormulario, name='driversForm'),
     path('scheduleForm/', pistasFormulario, name='scheduleForm'),
+    path('buscarEquipo/', buscarEquipos, name='buscarEquipo'),
+    path('buscar/', buscar, name='buscar'),
     path('login/',views.login_request, name='login'),
 ]

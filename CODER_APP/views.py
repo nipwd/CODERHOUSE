@@ -1,4 +1,5 @@
 from tkinter import E
+from wsgiref.util import request_uri
 from django.shortcuts import render
 from django.template import Context, Template
 from CODER_APP.models import *
@@ -42,7 +43,7 @@ def equiposFormulario(request):
             return render(request,'templates/index.html')
     else:
         form= EquiposForm()
-        return render(request,'templates/CODER_APP/formularios/equipos_form.html', {"formulario":form})
+        return render(request,'templates/CODER_APP/formularios/equipos_form.html', {'formulario': form})
 
 def pilotosFormulario(request):
     return render(request,'templates/CODER_APP/formularios/pilotos_form.html')
@@ -50,6 +51,21 @@ def pilotosFormulario(request):
 
 def pistasFormulario(request):
     return render(request,'templates/CODER_APP/formularios/pistas_form.html')
+
+def buscarEquipos(request):
+    return render(request,'templates/CODER_APP/busqueda/buscarEquipos.html')
+
+def buscar(request):
+    if request.GET['equipo']:
+        equipo= request.GET['equipo']
+        equipo= Equipos.objects.filter(equipo__icontains=equipo)  ###
+        return render(request,'templates/CODER_APP/busqueda/resultadosBusqueda.html', {"equipos":equipo})
+    else:
+        return render(request,'templates/CODER_APP/busqueda/buscarEquipos.html')
+
+
+
+
 
 
 

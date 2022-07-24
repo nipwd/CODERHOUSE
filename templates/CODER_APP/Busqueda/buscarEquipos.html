@@ -12,11 +12,14 @@
        <p style="color:red">Hay algo mal</p>
     {% endif %}
     
-    <form action="/teamForm/" method="POST"> {% csrf_token %}
-        <table>
-            {{ formulario.as_table  }}
-        </table>
-        <input type="submit" value="Enviar">
+    {% if error %}
+    <p style="color:red">{{ error }}</p>
+    {% endif %}
+    
+    <form action="{% url 'buscar' %}" method="GET"> 
+        <input type="text" name="equipo" id="equipo">
+        
+        <input type="submit" value="buscar">
     </form>
 
 </body>
