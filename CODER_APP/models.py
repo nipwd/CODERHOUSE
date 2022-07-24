@@ -3,13 +3,14 @@ from django.db import models
 # Create your models here.
 
 class Pilotos(models.Model):
+    name=models.CharField(max_length=50)
     team=models.CharField(max_length=50)
     country=models.CharField(max_length=50)
     podiums= models.IntegerField()
-    points= models.FloatField()
-    Date=models.CharField(max_length=50)
+    points= models.IntegerField()
+    Date=models.DateField()
     def __str__(self):
-        return self.termino  
+        return self.name+" "+self.team+" "+self.country+" "+str(self.podiums)+" "+str(self.points)+" "+str(self.Date)
 
 
 class Equipos(models.Model):
@@ -18,9 +19,8 @@ class Equipos(models.Model):
     chief=models.CharField(max_length=50)
     chassis=models.CharField(max_length=50)
     powerunit=models.CharField(max_length=50)
-    world_championships:models.IntegerField()
     def __str__(self):
-        return self.termino
+        return self.name+" "+self.base+" "+self.chief+" "+self.chassis+" "+self.powerunit
 
 
 class Pistas(models.Model):
@@ -30,5 +30,4 @@ class Pistas(models.Model):
     length=models.FloatField(max_length=50)
     record=models.FloatField(max_length=50)
     def __str__(self):
-        return self.termino
-
+        return self.name+" "+self.country+" "+str(self.laps)+" "+str(self.length)+" "+str(self.record)

@@ -21,7 +21,11 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="#!">F1 2022</a>
+                <a class="navbar-brand" href="{%url 'index' %}">F1 2022</a>
+                <a class="btn btn-primary" href="{% url 'drivers' %}">Pilotos</a>
+                <a class="btn btn-primary" href="{% url 'teams' %}">Equipos</a>
+                <a class="btn btn-primary" href="{% url 'schedule' %}">Pistas</a>
+                <a class="btn btn-primary" href="{% url 'login' %}">Log In</a>
                 <a class="btn btn-primary" href="#signup">Sign Up</a>
             </div>
         </nav>
@@ -34,40 +38,6 @@
                             <!-- Page heading-->
                             <h1 class="mb-5">2022 season</h1>
                             <!-- Signup form-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- * * SB Forms Contact Form * *-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- This form is pre-integrated with SB Forms.-->
-                            <!-- To make this form functional, sign up at-->
-                            <!-- https://startbootstrap.com/solution/contact-forms-->
-                            <!-- to get an API token!-->
-                            <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
-                                <!-- Email address input-->
-                                <div class="row">
-                                    <div class="col">
-                                        <input class="form-control form-control-lg" id="emailAddress" type="email" placeholder="Email Address" data-sb-validations="required,email" />
-                                        <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:required">Email Address is required.</div>
-                                        <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:email">Email Address Email is not valid.</div>
-                                    </div>
-                                    <div class="col-auto"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
-                                </div>
-                                <!-- Submit success message-->
-                                <!---->
-                                <!-- This is what your users will see when the form-->
-                                <!-- has successfully submitted-->
-                                <div class="d-none" id="submitSuccessMessage">
-                                    <div class="text-center mb-3">
-                                        <div class="fw-bolder">Form submission successful!</div>
-                                        <p>To activate this form, sign up at</p>
-                                        <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                    </div>
-                                </div>
-                                <!-- Submit error message-->
-                                <!---->
-                                <!-- This is what your users will see when there is-->
-                                <!-- an error submitting the form-->
-                                <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -89,7 +59,7 @@
                         <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                             <div class="features-icons-icon d-flex"><i class="bi-trophy m-auto text-primary"></i></div>
                             <a href="{% url 'standings'  %}"  role="button"><h3>standings</h3></a>
-                            <p class="lead mb-0">Featuring the latest build of the new Bootstrap 5 framework!</p>
+                            <p class="lead mb-0">2022 RACE RESULTS</p>
                         </div>
                     </div>
                     <div class="col-lg-4">
