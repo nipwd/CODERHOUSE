@@ -1,5 +1,4 @@
-from tkinter import E
-from wsgiref.util import request_uri
+from unicodedata import name
 from django.shortcuts import render
 from django.template import Context, Template
 from CODER_APP.models import *
@@ -15,19 +14,18 @@ from CODER_APP.forms import *
 def index(request):
     return render(request,'templates/index.html')
 
-def schedule(request):
-    return render(request,'templates/CODER_APP/schedule/schedule.html')
 
-def standings(request):
-    return render(request,'templates/CODER_APP/standings/standings.html')
+def pistas_view(request):
+    return render(request,'templates/CODER_APP/pistas/pistas.html')
 
-def drivers(request):
-    return render(request,'templates/CODER_APP/drivers/drivers.html')
+def pilotos_view(request):
+    return render(request,'templates/CODER_APP/pilotos/pilotos.html')
 
-def teams(request):
-    return render(request,'templates/CODER_APP/teams/teams.html')
+def Equipos_view(request):
+    return render(request,'templates/CODER_APP/equipos/equipos.html')
 
 
+### forms
 def equiposFormulario(request):
     if (request.method == "POST"):
         form= EquiposForm(request.POST)
@@ -46,26 +44,71 @@ def equiposFormulario(request):
         return render(request,'templates/CODER_APP/formularios/equipos_form.html', {'formulario': form})
 
 def pilotosFormulario(request):
-    return render(request,'templates/CODER_APP/formularios/pilotos_form.html')
-
+    if (request.method == "POST"):
+        form= EquiposForm(request.POST)
+        if form.is_valid():
+            info = form.cleaned_data
+            name= info["name"]
+            team= info["team"]
+            country= info["country"]
+            podiums= info["podiums"]
+            points= info["points"]
+            Date= info["Date"]
+            pilotos= Pilotos(name=name,team=team,country=country,podiums=podiums,points=points,Date=Date)
+            pilotos.save()
+            return render(request,'templates/index.html')
+    else:
+        form= EquiposForm()
+        return render(request,'templates/CODER_APP/formularios/pilotos_form.html', {'formulario': form})
 
 def pistasFormulario(request):
-    return render(request,'templates/CODER_APP/formularios/pistas_form.html')
-
-def buscarEquipos(request):
-    return render(request,'templates/CODER_APP/busqueda/buscarEquipos.html')
-
-def buscar(request):
-    if request.GET['equipo']:
-        equipo= request.GET['equipo']
-        equipo= Equipos.objects.filter(equipo__icontains=equipo)  ###
-        return render(request,'templates/CODER_APP/busqueda/resultadosBusqueda.html', {"equipos":equipo})
+    if (request.method == "POST"):
+        form= EquiposForm(request.POST)
+        if form.is_valid():
+            info = form.cleaned_data
+            name= info["name"]
+            country= info["country"]
+            laps= info["laps"]
+            length= info["length"]
+            record= info["record"]
+            pistas= Pistas(name=name,country=country,laps=laps,length=length,record=record)
+            pistas.save()
+            return render(request,'templates/index.html')
     else:
-        return render(request,'templates/CODER_APP/busqueda/buscarEquipos.html')
+        form= EquiposForm()
+        return render(request,'templates/CODER_APP/formularios/pistas_form.html', {'formulario': form})
+
+
+### busqueda
+
+
+def buscar_equipos(request):
+    if request.GET['equipos']:
+        equipo= request.GET['equipos']
+        equipo= Equipos.objects.filter(name__icontains=equipo)  ###
+        return render(request,'templates/CODER_APP/busqueda/resultadosBusqueda_equipo.html', {"equipos":equipo})
+    else:
+        return render(request,'templates/CODER_APP/equipos/equipos.html')
 
 
 
+def buscar_pilotos(request):
+    if request.GET['pilotos']:
+        piloto= request.GET['pilotos']
+        piloto= Equipos.objects.filter(name__icontains=piloto)  ###
+        return render(request,'templates/CODER_APP/busqueda/resultadosBusqueda_pilotos.html', {"piloto":piloto})
+    else:
+        return render(request,'templates/CODER_APP/pilotos/pilotos.html')
 
+
+
+def buscar_pistas(request):
+    if request.GET['pistas']:
+        pistas= request.GET['pistas']
+        pistas= Equipos.objects.filter(name__icontains=pistas)  ###
+        return render(request,'templates/CODER_APP/busqueda/resultadosBusqueda_pistas.html', {"pistas":pistas})
+    else:
+        return render(request,'templates/CODER_APP/pistas/pistas.html')
 
 
 
@@ -87,5 +130,3 @@ def login_request(request):
             return render(request,'templates/index.html',{"message":"ERROR, formulario erroneo"})
     form = AuthenticationForm()
     return render(request,'templates/CODER_APP/login.html', {'form':form})
-
-

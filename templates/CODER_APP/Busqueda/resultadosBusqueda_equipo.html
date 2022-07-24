@@ -1,0 +1,25 @@
+{% extends "templates/index.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+<h1>Resultados de Busqueda</h1>
+{% if equipos %}
+<ul>
+    {% for equipos in equipos %}
+    <p>{{ equipos.name }} esta en la base de datos</p>
+    <br>
+    {% endfor %}
+</ul>
+{% else %}
+   <p>No Existe el Equipo</p>
+{% endif %}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+

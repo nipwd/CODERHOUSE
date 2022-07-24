@@ -1,0 +1,29 @@
+{% extends "templates/index.html" %}
+{% load static %}
+
+
+{% block contenidoQueCambia %}
+{% if formulario.errors %}
+<p style="color:red">Hay algo mal</p>
+{% endif %}
+
+{% if error %}
+<p style="color:red">{{ error }}</p>
+{% endif %}
+<h4><p>Buscar Pilotos</p>
+<form action="{% url 'buscar_pilotos' %}" method="GET"> 
+ <input type="text" name="pilotos" id="pilotos">
+ 
+ <input type="submit" value="buscar">
+</form>
+
+<h4>
+    <h4><p>Agregar Pilotos</p>
+    <form action="{% url 'pilotoForm' %}" method="GET"> 
+        <input type="submit" name="agregar" id="pilotos">
+     
+       </form>
+
+</h4>
+{% endblock %}
+

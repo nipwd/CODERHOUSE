@@ -1,0 +1,30 @@
+{% extends "templates/index.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+<h1>Resultados de Busqueda</h1>
+{% if pilotos %}
+<ul>
+    {% for pilotos in pilotos %}
+    <p>{{ pilotos.name }} esta en la base de datos</p>
+    <br>
+    {% endfor %}
+</ul>
+{% else %}
+   <p>No Existe el Piloto</p>
+{% endif %}
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
