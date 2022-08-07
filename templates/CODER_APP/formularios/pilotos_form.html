@@ -1,21 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+{% extends "templates/index.html" %}
+{% load static %}
+
+
+
+{% block contenidoQueCambia %}
+
 <body>
-    <form action="/pilotosFormulario/" method="post"> {% csrf_token %}
-        <p>Nombre: <input type="text" name="name"></p>
-        <p>Equipo: <input type="text" name="team"></p>
-        <p>Pais: <input type="text" name="country"></p>
-        <p>Podios: <input type="text" name="podiums"></p>
-        <p>Puntos: <input type="text" name="points"></p>
-        <p>Nacimiento: <input type="text" name="Date"></p>
+    {% if formulario.errors %}
+       <p style="color:red">Hay algo mal</p>
+    {% endif %}
+    
+    <form action="/pilotoForm/" method="POST"> {% csrf_token %}
+        <table>
+            {{ formulario.as_table  }}
+        </table>
         <input type="submit" value="Enviar">
     </form>
 
 </body>
 </html>
+{% endblock %}

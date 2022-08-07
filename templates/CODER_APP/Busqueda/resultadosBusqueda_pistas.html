@@ -4,8 +4,8 @@
 <h1>Resultados de Busqueda</h1>
 {% if pistas %}
 <ul>
-    {% for pistas in pistas %}
-    <p>{{ pistas.name } esta en la base de datos}</p>
+<h3>{% for pista in pistas %}</h3>
+<li>{{ pista }}</li>
     <br>
     {% endfor %}
 </ul>

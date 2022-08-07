@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -26,8 +27,14 @@ class Equipos(models.Model):
 class Pistas(models.Model):
     name=models.CharField(max_length=50)
     country=models.CharField(max_length=50)
-    laps=models.IntegerField
     length=models.FloatField(max_length=50)
     record=models.FloatField(max_length=50)
     def __str__(self):
-        return self.name+" "+self.country+" "+str(self.laps)+" "+str(self.length)+" "+str(self.record)
+        return self.name+", Country: "+self.country+", Circuit Length:  "+str(self.length)+" km, "+"Record: "+str(self.record)
+
+
+
+class Avatar(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    imagen = models.ImageField(upload_to="avatares", null= True, blank=True)
+    

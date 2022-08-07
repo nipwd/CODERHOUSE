@@ -8,6 +8,12 @@
 {% if error %}
 <p style="color:red">{{ error }}</p>
 {% endif %}
+
+
+
+
+
+
 <h4><p>Buscar Pista</p>
 <form action="{% url 'buscar_pistas' %}" method="GET"> 
  <input type="text" name="pistas" id="pistas">
@@ -16,6 +22,17 @@
 </form>
 </h4>
 <h4>
+    <h3>{% for pista in pistas %}</h3>
+    <li>{{ pista }}</li>
+    <button>
+        <a href="{% url 'eliminarPista' pista.name %}" > Eliminar</a> 
+    </button>
+
+    <button>
+        <a href="{% url 'editarPista' pista.name %}" > Editar</a> 
+    </button>
+    {% endfor %}
+
     <h4><p>Agregar Pista</p>
     <form action="{% url 'pistaForm' %}" method="GET"> 
         <input type="submit" name="agregar" id="pilotos">

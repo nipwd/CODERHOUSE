@@ -1,10 +1,17 @@
-<h1>Formulario -Editar Perfil</h1>
-<h1>De {{usuario}}</h1>
+{% extends "templates/index.html" %}
+{% load static %}
 
-<form action="" method="POST">{% csrf_token %}
+
+
+{% block contenidoQueCambia %}
+
+<h1>-Editar Perfil: {{ usuario }}</h1>
+
+<form action="{% url 'editarPerfil' %}" method="POST">{% csrf_token %}
    <table>
-    {{ miformulario.as_table }}
+    {{ formulario.as_table }}
    </table>
 
    <input type="submit", value="Enviar">
 </form>
+{% endblock %}

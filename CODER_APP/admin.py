@@ -4,4 +4,4 @@ from CODER_APP.models import *
 admin.site.register(Pilotos)
 admin.site.register(Equipos)
 admin.site.register(Pistas)
-
+admin.site.register(Avatar)

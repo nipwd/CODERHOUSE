@@ -1,0 +1,30 @@
+{% extends "templates/index.html" %}
+{% load static %}
+
+
+
+{% block contenidoQueCambia %}
+
+<h1>-Perfil: {{ usuario }}</h1>
+<h3>Editar Perfil</h3>
+<form action="{% url 'editarPerfil' %}" method="POST">{% csrf_token %}
+   <table>
+    {{ formulario.as_table }}
+   </table>
+
+   <input type="submit", value="Editar">
+</form>
+<h3>Agregar/Editar Avatar</h3>
+<form action="{% url 'agregarAvatar'  %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
+
+   <table>
+       {{ formulario.as_table }}
+   </table>
+
+   <!--- -->
+   <input type="submit" value="Editar">
+
+
+</form>
+
+{% endblock %}

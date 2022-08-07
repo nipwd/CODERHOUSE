@@ -1,10 +1,15 @@
-<html>
-<body>
-    <form action="" method="POST">
-    {% csrf_token %}
+{% extends "templates/index.html" %}
+{% load static %}
 
-    {{form.as_p}}
-    <button type="submit">Iniciar Sesion</button>
+
+
+{% block contenidoQueCambia %}
+
+<h1>{{ mensaje }}</h1>
+
+    <form action="{% url 'login' %}" method="POST"> {% csrf_token %}
+        {{  form.as_p  }}
+        <button type="submit">Iniciar Sesion</button>
     </form>
-</body>
-</html>
+
+{% endblock %}

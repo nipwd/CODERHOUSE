@@ -1,0 +1,23 @@
+{% extends "templates/index.html" %}
+{% load static %}
+
+
+
+{% block contenidoQueCambia %}
+
+<body>
+    <h3>Editar Pista {{ pista_name }}</h3>
+    {% if formulario.errors %}
+       <p style="color:red">Hay algo mal</p>
+    {% endif %}
+    
+    <form action="{% url 'editarPista' pista_name %}" method="POST"> {% csrf_token %}
+        <table>
+            {{ formulario.as_table  }}
+        </table>
+        <input type="submit" value="Enviar">
+    </form>
+
+</body>
+</html>
+{% endblock %}

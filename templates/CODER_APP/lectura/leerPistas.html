@@ -1,0 +1,14 @@
+{% extends "templates/index.html" %}
+{% load static %}
+
+
+{% block contenidoQueCambia %}
+
+<h3>{% for pista in pistas %}</h3>
+<li>{{ pista }}</li>
+<button>
+    <a href="{% url 'eliminarPista' pista.name %}" > Eliminar</a> 
+</button>
+{% endfor %}
+
+{% endblock %}
