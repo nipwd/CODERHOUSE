@@ -1,8 +1,5 @@
 {% extends "templates/index.html" %}
 {% load static %}
-
-
-
 {% block contenidoQueCambia %}
 {% if formulario.errors %}
 <p style="color:red">Hay algo mal</p>
@@ -11,6 +8,12 @@
 {% if error %}
 <p style="color:red">{{ error }}</p>
 {% endif %}
+
+
+
+
+
+
 <h4><p>Buscar Equipo</p>
 <form action="{% url 'buscar_equipos' %}" method="GET"> 
  <input type="text" name="equipos" id="equipos">
@@ -19,11 +22,25 @@
 </form>
 </h4>
 <h4>
+   
+    <h3>{% for equipo in equipos %}</h3>
+    <li>{{ equipo }}</li>
+    {% if request.user.is_superuser %} 
+    <button>
+        <a href="{% url 'eliminarEquipos' equipo.name %}" > Eliminar</a> 
+    </button>
+
+    <button>
+        <a href="{% url 'editarEquipo' equipo.name %}" > Editar</a> 
+    </button>
+    {% endif %}
+    {% endfor %}
+    {% if request.user.is_superuser %}
     <h4><p>Agregar Equipos</p>
     <form action="{% url 'equiposForm' %}" method="GET"> 
-        <input type="submit" name="agregar" id="pilotos">
+        <input type="submit" name="agregar" id="equipos">
      
        </form>
-
+       {% endif %}
 </h4>
 {% endblock %}

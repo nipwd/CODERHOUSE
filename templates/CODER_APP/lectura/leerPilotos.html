@@ -1,0 +1,14 @@
+{% extends "templates/index.html" %}
+{% load static %}
+
+
+{% block contenidoQueCambia %}
+
+<h3>{% for piloto in pilotos %}</h3>
+<li>{{ piloto }}</li>
+<button>
+    <a href="{% url 'eliminarPiloto' piloto.name %}" > Eliminar</a> 
+</button>
+{% endfor %}
+
+{% endblock %}

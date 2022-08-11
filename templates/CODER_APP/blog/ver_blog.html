@@ -1,0 +1,25 @@
+{% extends "templates/index.html" %}
+{% load static %}
+
+
+
+{% block contenidoQueCambia %}
+
+<body>
+    <h3> Blog {{ blog_titulo }}</h3>
+    {% if formulario.errors %}
+       <p style="color:red">Hay algo mal</p>
+    {% endif %}
+    
+    <title>{{ titulo }}</title>
+       
+           <h4>{{ mensaje }}</h4>
+           
+
+
+
+
+
+</body>
+</html>
+{% endblock %}

@@ -26,15 +26,38 @@ urlpatterns = [
     path('pistas/', pistas_view, name='pistas'),
     path('pilotos/', pilotos_view, name='pilotos'),
     path('equipos/', Equipos_view, name='equipos'),
-    path('teamForm/', equiposFormulario, name='equiposForm'),
+    path('equipos/', Equipos_view, name='equipos'),
+    path('blog/', Blog_view, name='blog'),
+    ###pistas 
     path('pistaForm/', pistasFormulario, name='pistaForm'),
-    path('pilotoForm/', pilotosFormulario, name='pilotoForm'),
-    path('buscar_equipos/', buscar_equipos, name='buscar_equipos'),
-    path('buscar_pilotos/', buscar_pilotos, name='buscar_pilotos'),
     path('buscar_pistas/', buscar_pistas, name='buscar_pistas'),
-    path('leerPistas/', LeerPistas, name="leerPistas"),
     path('eliminarPista/<pista_name>', eliminarPista, name="eliminarPista"),
     path('editarPista/<pista_name>', editarPista, name="editarPista"),
+    path('leerPistas/', LeerPistas, name="leerPistas"),
+    ## fin pistas
+    ### equipo
+    path('teamForm/', equiposFormulario, name='equiposForm'),
+    path('buscar_equipos/', buscar_equipos, name='buscar_equipos'),
+    path('eliminarEquipos/<equipo_name>', eliminarEquipos, name="eliminarEquipos"),
+    path('editarEquipo/<equipo_name>', editarEquipos, name="editarEquipo"),
+    path('leerEquipos/', LeerEquipos, name="leerEquipos"),
+    ## fin equipos
+    ### pilotos
+    path('pilotoForm/', pilotosFormulario, name='pilotoForm'),
+    path('buscar_pilotos/', buscar_pilotos, name='buscar_pilotos'),
+    path('eliminarPiloto/<piloto_name>', eliminarPilotos, name="eliminarPiloto"),
+    path('editarPiloto/<piloto_name>', editarPilotos, name="editarPiloto"),
+    path('leerPilotos/', LeerPilotos, name="leerPilotos"),
+    ## fin pilotos
+      ### blog
+    path('blogForm/', blogFormulario, name='blogForm'),
+    path('buscar_blog/', buscar_blog, name='buscar_blog'),
+    path('eliminarblog/<blog_titulo>', eliminarblog, name="eliminarblog"),
+    path('editarblog/<blog_titulo>', editarblog, name="editarblog"),
+    path('LeerBlog/', LeerBlog, name="LeerBlog"),
+    path('verblog/<blog_titulo>', verblog, name="verblog"),
+    ## fin blog
+    #user
     path('login/', login_request, name='login'),
     path('register/', register, name= 'register'),
     path('logout/', LogoutView.as_view(template_name='templates/CODER_APP/logout.html'),name='logout'),

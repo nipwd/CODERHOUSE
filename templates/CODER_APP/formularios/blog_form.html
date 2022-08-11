@@ -6,12 +6,12 @@
 {% block contenidoQueCambia %}
 
 <body>
-    <h3>Editar Equipos</h3>
+    <h3>Editar Blog</h3>
     {% if formulario.errors %}
        <p style="color:red">Hay algo mal</p>
     {% endif %}
     
-    <form action="{% url 'equiposForm' %}" method="POST"> {% csrf_token %}
+    <form action="{% url 'blogForm' %}" method="POST"> {% csrf_token %}
         <table>
             {{ formulario.as_table  }}
         </table>

@@ -22,8 +22,10 @@
 </form>
 </h4>
 <h4>
+ 
     <h3>{% for pista in pistas %}</h3>
     <li>{{ pista }}</li>
+    {% if request.user.is_superuser %}
     <button>
         <a href="{% url 'eliminarPista' pista.name %}" > Eliminar</a> 
     </button>
@@ -31,13 +33,14 @@
     <button>
         <a href="{% url 'editarPista' pista.name %}" > Editar</a> 
     </button>
+    {% endif %}
     {% endfor %}
-
+    {% if request.user.is_superuser %}
     <h4><p>Agregar Pista</p>
     <form action="{% url 'pistaForm' %}" method="GET"> 
         <input type="submit" name="agregar" id="pilotos">
      
        </form>
-
+{% endif %}
 </h4>
 {% endblock %}

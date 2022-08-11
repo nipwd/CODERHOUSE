@@ -1,0 +1,14 @@
+{% extends "templates/index.html" %}
+{% load static %}
+
+
+{% block contenidoQueCambia %}
+
+<h3>{% for equipo in equipos %}</h3>
+<li>{{ equipo }}</li>
+<button>
+    <a href="{% url 'eliminarEquipo' equipo.name %}" > Eliminar</a> 
+</button>
+{% endfor %}
+
+{% endblock %}

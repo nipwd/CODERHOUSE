@@ -2,17 +2,22 @@
 {% load static %}
 {% block contenidoQueCambia %}
 <h1>Resultados de Busqueda</h1>
-{% if equipos %}
+{% if blog %}
 <ul>
-    {% for equipo in equipos %}
-    <p>{{ equipo.name }} esta en la base de datos</p>
+<h3>{% for blg in blog %}</h3>
+<li>{{ blg }}</li>
     <br>
     {% endfor %}
 </ul>
 {% else %}
-   <p>No Existe el Equipo</p>
+   <p>No Existe el Blog</p>
 {% endif %}
 {% endblock %}
+
+
+
+
+
 
 
 

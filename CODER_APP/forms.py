@@ -50,3 +50,11 @@ class UserEditForm(UserCreationForm):
 
 class Avatarform(forms.Form):
     imagen = forms.ImageField(label='imagen')
+
+class BlogForm(forms.Form):
+    titulo = forms.CharField()
+    mensaje = forms.CharField()
+    
+class ComentariosForm(forms.Form):
+    mensaje= forms.CharField()
+    

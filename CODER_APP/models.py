@@ -1,3 +1,4 @@
+from calendar import c
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -38,3 +39,21 @@ class Avatar(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     imagen = models.ImageField(upload_to="avatares", null= True, blank=True)
     
+
+
+class Blog(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE)
+    titulo = models.CharField(max_length=50)
+    mensaje =models.TextField()
+    
+    def __str__(self):
+        return str(self.user)+str(self.titulo)+str(self.mensaje)
+
+
+class Comentarios(models.Model):
+    blog = models.ForeignKey(Blog,on_delete=models.CASCADE)
+    comentario = models.CharField(max_length=240)
+    
+    
+    def __str__(self):
+        return self.comentario+str(self.blog)

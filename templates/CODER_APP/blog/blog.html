@@ -1,0 +1,47 @@
+{% extends "templates/index.html" %}
+{% load static %}
+{% block contenidoQueCambia %}
+{% if formulario.errors %}
+<p style="color:red">Hay algo mal</p>
+{% endif %}
+
+{% if error %}
+<p style="color:red">{{ error }}</p>
+{% endif %}
+
+
+
+
+
+
+<h4><p>Buscar Blog</p>
+<form action="{% url 'buscar_blog' %}" method="GET"> 
+ <input type="text" name="blog" id="blog">
+ 
+ <input type="submit" value="buscar">
+</form>
+</h4>
+<h4>
+    <h3>{% for blg in blog %}</h3>
+    <li>{{ blg.titulo }}------> by {{ blg.user }}</li>
+    {% if request.user.username == blg.user.username or request.user.is_superuser %}
+    <button>
+        <a href="{% url 'eliminarblog' blg.titulo %}" > Eliminar</a> 
+    </button>
+    <button>
+        <a href="{% url 'editarblog' blg.titulo %}" > Editar</a> 
+    </button>
+    {% endif %}
+    <button>
+        <a href="{% url 'verblog' blg.titulo %}" > Leer</a> 
+    </button>
+    {% endfor %}
+
+    <h4><p>Agregar Blog</p>
+    <form action="{% url 'blogForm' %}" method="GET"> 
+        <input type="submit" name="agregar" id="blog">
+     
+       </form>
+
+</h4>
+{% endblock %}
