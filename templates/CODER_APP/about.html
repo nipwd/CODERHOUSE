@@ -1,6 +1,12 @@
-# CODERHOUSE
- 
-La web tiene la finalidad de imitar de forma basica, la web original de la F1, teniendo como agregado el sector Blog donde cada usuario puede dejar su mensaje en la web.
+{% extends "templates/index.html" %}
+{% load static %}
+
+
+
+{% block contenidoQueCambia %}
+
+<h1>-Acerca del Equipo:</h1>
+<h5>La web tiene la finalidad de imitar de forma basica, la web original de la F1, teniendo como agregado el sector Blog donde cada usuario puede dejar su mensaje en la web.
 
 
    -la vision en las paginas "Equipos", "Pilotos", "Pistas", esta limitada siendo solo posible al administrador modificar los campos, accediendo como (usuario ="admin") (contraseña="admin") al sitio, puede ser editado por formularios o por el admin site /admin
@@ -12,4 +18,7 @@ La web tiene la finalidad de imitar de forma basica, la web original de la F1, t
    python manage.py run server
    
    
-   Este proyecto fue realizado integramente por  Nicolas Videla
+   Este proyecto fue realizado integramente por  Nicolas Videla</h5>
+
+
+{% endblock %}

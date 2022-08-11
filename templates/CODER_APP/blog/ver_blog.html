@@ -6,7 +6,9 @@
 {% block contenidoQueCambia %}
 
 <body>
-    <h3> Blog {{ blog_titulo }}</h3>
+    <h3> Blog {{ blog_titulo }} </h3>
+   
+    <img src="{{ imagen_avatar }}" alt="" width="60" height="60" -----> by {{ user.username }},  at {{ fecha_post }}
     {% if formulario.errors %}
        <p style="color:red">Hay algo mal</p>
     {% endif %}
@@ -16,7 +18,7 @@
            <h4>{{ mensaje }}</h4>
            
 
-
+           {{ date }}
 
 
 

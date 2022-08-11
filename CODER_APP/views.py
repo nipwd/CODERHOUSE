@@ -32,6 +32,13 @@ def index(request):
     imagen_avatar
     return render(request,'templates/index.html',{"imagen_avatar":imagen_avatar})
 
+
+def about(request):
+    mostrar_avatar(request)
+    imagen_avatar
+    return render(request,'templates/CODER_APP/about.html',{"imagen_avatar":imagen_avatar})
+
+
 @login_required
 def pistas_view(request):
     mostrar_avatar(request)
@@ -389,6 +396,8 @@ def verblog(request,blog_titulo):
     mostrar_avatar(request)
     imagen_avatar
     blog= Blog.objects.get(titulo=blog_titulo)
+    
+   
     if request.method == 'POST':
         form = BlogForm(request.POST)
         if form.is_valid():
@@ -396,8 +405,8 @@ def verblog(request,blog_titulo):
             
             
     else:
-        form= BlogForm(initial={"titulo":blog.titulo,"mensaje":blog.mensaje,"imagen_avatar":imagen_avatar,"coments":coments,})
-    return render(request,'templates/CODER_APP/blog/ver_blog.html', {"coments":coments,"formulario": form,"blog_titulo":blog_titulo,"mensaje":blog.mensaje,"imagen_avatar":imagen_avatar})
+        form= BlogForm(initial={"fecha_post":blog.fecha_post,"titulo":blog.titulo,"mensaje":blog.mensaje,"imagen_avatar":imagen_avatar,"coments":coments,})
+    return render(request,'templates/CODER_APP/blog/ver_blog.html', {"fecha_post":blog.fecha_post,"formulario": form,"blog_titulo":blog_titulo,"mensaje":blog.mensaje,"imagen_avatar":imagen_avatar})
 #############################fin blog
 
 ############################################################### usuario
