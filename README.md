@@ -1,5 +1,14 @@
 # CODERHOUSE
  
-El funcionamiento es muy sensillo en las pestañas superiores se elige la clase a buscar o agregar.
-Se añade el criterio a buscar, si la busqueda es negativa informara que no se encuentra, en caso de ser positiva lo mostrara.
-Para agregar solo basta con apretar el boton enviar, nos llevara a la pagina del formulario, este al ser ingresado correctamente los campos nos llevara a la la pagina de inicio nuevamente.
+La web tiene la finalidad de imitar de forma basica, la web original de la F1, teniendo como agregado el sector Blog donde cada usuario puede dejar su mensaje en la web.
+
+
+-la vision en las paginas "Equipos", "Pilotos", "Pistas", esta limitada siendo solo posible al administrador modificar los campos, accediendo como (usuario ="admin") (contraseña="admin") al sitio, puede ser editado por formularios o por el admin site /admin
+
+-cualquier usuario puede ver y crear un blog, limitando solo al creador o al administrador editar o eliminar los mensajes.
+
+basta con descargar el archivo, extraer el .zip y abrir la carpeta en el interprete a eleccion seguido del comando
+
+python manage.py run server
+
+
