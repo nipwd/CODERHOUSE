@@ -12,7 +12,7 @@ class Pilotos(models.Model):
     points= models.IntegerField()
     Date=models.DateField()
     def __str__(self):
-        return self.name+" "+self.team+" "+self.country+" "+str(self.podiums)+" "+str(self.points)+" "+str(self.Date)
+        return self.name+"corre para "+self.team+", es de  "+self.country+", podios:  "+str(self.podiums)+", puntos: "+str(self.points)+", fecha nacimiento: "+str(self.Date)
 
 
 class Equipos(models.Model):
@@ -22,7 +22,7 @@ class Equipos(models.Model):
     chassis=models.CharField(max_length=50)
     powerunit=models.CharField(max_length=50)
     def __str__(self):
-        return self.name+" "+self.base+" "+self.chief+" "+self.chassis+" "+self.powerunit
+        return self.name+" , tiene su base en "+self.base+", el jefe de equipo es: "+self.chief+", el chasis de este año se llama: "+self.chassis+", suministrador de motores: "+self.powerunit
 
 
 class Pistas(models.Model):

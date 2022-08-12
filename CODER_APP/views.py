@@ -290,7 +290,7 @@ def editarEquipos(request,equipo_name):
     if request.method == 'POST':
         form = EquiposForm(request.POST)
         if form.is_valid():
-            info = form.cleaned_data()
+            info = form.cleaned_data
             equipo.name= info["name"]
             equipo.base= info["base"]
             equipo.chief= info["chief"]
@@ -299,8 +299,8 @@ def editarEquipos(request,equipo_name):
             equipo.save()
             return render(request,'templates/index.html',{"imagen_avatar":imagen_avatar})
     else:
-        form= PistasForm(initial={"name":equipo.name,"base":equipo.base,"chief":equipo.chief,"chassis":equipo.chassis,"powerunit":equipo.powerunit,"imagen_avatar":imagen_avatar})
-    return render(request,'templates/CODER_APP/pistas/editar_equipo.html', {"formulario": form,"equipo_name":equipo_name,"imagen_avatar":imagen_avatar})
+        form= EquiposForm(initial={"name":equipo.name,"base":equipo.base,"chief":equipo.chief,"chassis":equipo.chassis,"powerunit":equipo.powerunit,"imagen_avatar":imagen_avatar})
+    return render(request,'templates/CODER_APP/equipos/editar_equipos.html', {"formulario": form,"equipo_name":equipo_name,"imagen_avatar":imagen_avatar})
 
 
 #### LEER
