@@ -321,18 +321,19 @@ def blogFormulario(request):
     mostrar_avatar(request)  
     imagen_avatar
     if (request.method == "POST"):
-        form= BlogForm(request.POST)
+        form= BlogForm(request.POST, request.FILES)
         if form.is_valid():
             info = form.cleaned_data
             titulo= info["titulo"]
             mensaje= info["mensaje"]
+            imagenBlog = info['imagenBlog']
             usuario = request.user
-            blog= Blog(user=usuario,titulo=titulo,mensaje=mensaje)
+            blog= Blog(user=usuario,titulo=titulo,mensaje=mensaje,imagenBlog=imagenBlog)
             blog.save()
             return render(request,'templates/index.html')
     else:
         form= BlogForm()
-        return render(request,'templates/CODER_APP/formularios/blog_form.html', {'formulario': form,"imagen_avatar":imagen_avatar})
+    return render(request,'templates/CODER_APP/formularios/blog_form.html', {'formulario': form,"imagen_avatar":imagen_avatar})
 
 #buscar
 @login_required
@@ -396,17 +397,15 @@ def verblog(request,blog_titulo):
     mostrar_avatar(request)
     imagen_avatar
     blog= Blog.objects.get(titulo=blog_titulo)
-    
+
    
     if request.method == 'POST':
         form = BlogForm(request.POST)
         if form.is_valid():
-            form.cleaned_data
-            
-            
+            form.cleaned_data        
     else:
-        form= BlogForm(initial={"fecha_post":blog.fecha_post,"titulo":blog.titulo,"mensaje":blog.mensaje,"imagen_avatar":imagen_avatar,"coments":coments,})
-    return render(request,'templates/CODER_APP/blog/ver_blog.html', {"fecha_post":blog.fecha_post,"formulario": form,"blog_titulo":blog_titulo,"mensaje":blog.mensaje,"imagen_avatar":imagen_avatar})
+        form= BlogForm(initial={"imagenBlog":blog.imagenBlog,"fecha_post":blog.fecha_post,"titulo":blog.titulo,"mensaje":blog.mensaje,"imagen_avatar":imagen_avatar})
+    return render(request,'templates/CODER_APP/blog/ver_blog.html', {"creador":blog.user,"fecha_post":blog.fecha_post,"formulario": form,"blog_titulo":blog_titulo,"mensaje":blog.mensaje,"imagenBlog":blog.imagenBlog,"imagen_avatar":imagen_avatar})
 #############################fin blog
 
 ############################################################### usuario

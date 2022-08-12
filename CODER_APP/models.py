@@ -46,7 +46,8 @@ class Blog(models.Model):
     titulo = models.CharField(max_length=50)
     mensaje =models.TextField()
     fecha_post = models.DateTimeField(auto_now_add=True,null=True)
+    imagenBlog = models.ImageField(upload_to="blog", null= True, blank=True)
     def __str__(self):
-        return str(self.user)+str(self.titulo)+str(self.mensaje)+str(self.date)
+        return str(self.user)+str(self.titulo)+str(self.mensaje)+str(self.fecha_post)
 
 

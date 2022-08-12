@@ -11,7 +11,7 @@
        <p style="color:red">Hay algo mal</p>
     {% endif %}
     
-    <form action="{% url 'blogForm' %}" method="POST"> {% csrf_token %}
+    <form action="{% url 'blogForm' %}" method="POST" enctype="multipart/form-data"> {% csrf_token %}
         <table>
             {{ formulario.as_table  }}
         </table>

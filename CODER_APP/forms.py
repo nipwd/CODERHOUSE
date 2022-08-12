@@ -1,4 +1,5 @@
 from dataclasses import field
+from pickle import TRUE
 from django import forms
 from django.contrib.auth.forms import  UserCreationForm
 from django.contrib.auth.models import User
@@ -54,4 +55,4 @@ class Avatarform(forms.Form):
 class BlogForm(forms.Form):
     titulo = forms.CharField()
     mensaje = forms.CharField()
-    fecha_post =forms.DateTimeField()
+    imagenBlog = forms.ImageField(label='imagenBlog')

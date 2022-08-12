@@ -8,7 +8,7 @@
 <body>
     <h3> Blog {{ blog_titulo }} </h3>
    
-    <img src="{{ imagen_avatar }}" alt="" width="60" height="60" -----> by {{ user.username }},  at {{ fecha_post }}
+    -----> by {{ creador }},  at {{ fecha_post }}
     {% if formulario.errors %}
        <p style="color:red">Hay algo mal</p>
     {% endif %}
@@ -21,6 +21,7 @@
            {{ date }}
 
 
+<img src="{{ imagenBlog.url }}" alt="imagen" width="800" height="800">
 
 </body>
 </html>
