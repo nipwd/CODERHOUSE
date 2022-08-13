@@ -492,4 +492,19 @@ def register(request):
 
 
 
+#######corregir formulario ya que no carga , discriminar por usuario en html
+def mensajes(request):
+    mostrar_avatar(request)
+    imagen_avatar
+    usuario = request.user
+    if (request.method == "POST"):
+        form= MessageForm(request.POST)
+        if form.is_valid():
+         
+            msg = Message.objects.all()
 
+            return render(request,'templates/index.html',{'msg':msg})
+    else:
+        form= MessageForm()
+        msg = Message.objects.all()
+    return render(request,'templates/CODER_APP/formularios/mensaje_form.html', {'msg':msg,'formulario': form,"imagen_avatar":imagen_avatar})

@@ -1,0 +1,29 @@
+{% extends "templates/index.html" %}
+{% load static %}
+
+
+
+{% block contenidoQueCambia %}
+
+<body>
+    <h3>Enivar Mensaje</h3>
+    {% if formulario.errors %}
+       <p style="color:red">Hay algo mal</p>
+    {% endif %}
+    
+    <form action="{% url 'messages' %}" method="POST"> {% csrf_token %}
+        <table>
+            {{ formulario.as_table  }}
+        </table>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <table>
+        {% for blg in msg %}
+        <h2>Lista de mensajes:</h2>
+        <h4>{{  blg.msg_content  }}</h4>  (enviado por---> {{ blg.sender  }})  (at---> {{ blg.created_at  }})
+    </table>
+    {% endfor %}
+</body>
+</html>
+{% endblock %}

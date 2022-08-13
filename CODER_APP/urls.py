@@ -65,5 +65,6 @@ urlpatterns = [
     path('editarPerfil/', editarPerfil, name="editarPerfil"),
     path('agregarAvatar/', agregarAvatar, name='agregarAvatar'),
     path('about/', about, name='about'),
+    path('messages/', mensajes, name='messages'),
 ]
 

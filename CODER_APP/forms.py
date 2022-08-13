@@ -56,3 +56,8 @@ class BlogForm(forms.Form):
     titulo = forms.CharField()
     mensaje = forms.CharField()
     imagenBlog = forms.ImageField(label='imagenBlog')
+
+
+
+class MessageForm(forms.Form):
+    msg_content = forms.CharField(label='Escribi tu mensaje')

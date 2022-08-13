@@ -26,6 +26,7 @@
                 <a class="btn btn-primary" href="{% url 'equipos' %}">Equipos</a>
                 <a class="btn btn-primary" href="{% url 'pistas' %}">Pistas</a>
                 <a class="btn btn-primary" href="{% url 'blog' %}">Blog</a>
+                <a class="bi-envelope-fill fa-xl"style="font-size:30px;" href="{% url 'messages' %}" ></a>
                 {% if not request.user.is_authenticated %}
                 <a class="btn btn-primary" href="{% url 'register' %}">Sign Up</a>
                 <a class="btn btn-primary" href="{% url 'login' %}">Log In</a>

@@ -12,7 +12,7 @@ class Pilotos(models.Model):
     points= models.IntegerField()
     Date=models.DateField()
     def __str__(self):
-        return self.name+"corre para "+self.team+", es de  "+self.country+", podios:  "+str(self.podiums)+", puntos: "+str(self.points)+", fecha nacimiento: "+str(self.Date)
+        return self.name+" corre para "+self.team+", es de  "+self.country+", podios:  "+str(self.podiums)+", puntos: "+str(self.points)+", fecha nacimiento: "+str(self.Date)
 
 
 class Equipos(models.Model):
@@ -51,3 +51,11 @@ class Blog(models.Model):
         return str(self.user)+str(self.titulo)+str(self.mensaje)+str(self.fecha_post)
 
 
+class Message(models.Model):
+    sender = models.ForeignKey(User, related_name="sender",on_delete=models.CASCADE)
+    reciever = models.ForeignKey(User, related_name="reciever",on_delete=models.CASCADE)
+    msg_content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True,null=True)
+    
+    def __str__(self):
+        return str(self.sender)+str(self.reciever)+str(self.msg_content)+str(self.created_at)
