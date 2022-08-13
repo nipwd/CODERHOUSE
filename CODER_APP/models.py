@@ -52,8 +52,8 @@ class Blog(models.Model):
 
 
 class Message(models.Model):
-    sender = models.ForeignKey(User, related_name="sender",on_delete=models.CASCADE)
-    reciever = models.ForeignKey(User, related_name="reciever",on_delete=models.CASCADE)
+    sender = models.ForeignKey(User,on_delete=models.CASCADE)
+    reciever = models.CharField(max_length=50)
     msg_content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True,null=True)
     

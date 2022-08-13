@@ -60,4 +60,5 @@ class BlogForm(forms.Form):
 
 
 class MessageForm(forms.Form):
-    msg_content = forms.CharField(label='Escribi tu mensaje')
+    msg_content = forms.CharField(label='Escribi tu mensaje ')
+    reciever = forms.CharField(label="Enviar a ")

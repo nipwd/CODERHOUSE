@@ -14,15 +14,24 @@
     <form action="{% url 'messages' %}" method="POST"> {% csrf_token %}
         <table>
             {{ formulario.as_table  }}
+
         </table>
         <input type="submit" value="Enviar">
     </form>
 
     <table>
         {% for blg in msg %}
+        {% if request.user.username == blg.reciever %}
         <h2>Lista de mensajes:</h2>
-        <h4>{{  blg.msg_content  }}</h4>  (enviado por---> {{ blg.sender  }})  (at---> {{ blg.created_at  }})
+        <h4>-{{  blg.msg_content  }}</h4>  (enviado por---> {{ blg.sender  }})  (at---> {{ blg.created_at  }})
     </table>
+    {% endif %}
+    {% endfor %}
+
+    <h3>Mensajes Enviados</h3>
+    {% for x in enviados %}
+
+    <h4>- {{  x.msg_content  }}</h4>  (enviado a---> {{ x.reciever  }})  (at---> {{ x.created_at  }})
     {% endfor %}
 </body>
 </html>
