@@ -11,6 +11,7 @@ class Pilotos(models.Model):
     podiums= models.IntegerField()
     points= models.IntegerField()
     Date=models.DateField()
+    Foto= models.ImageField(upload_to="Foto/pilotos", null= True, blank=True)
     def __str__(self):
         return self.name+" corre para "+self.team+", es de  "+self.country+", podios:  "+str(self.podiums)+", puntos: "+str(self.points)+", fecha nacimiento: "+str(self.Date)
 
@@ -21,6 +22,7 @@ class Equipos(models.Model):
     chief=models.CharField(max_length=50)
     chassis=models.CharField(max_length=50)
     powerunit=models.CharField(max_length=50)
+    Foto= models.ImageField(upload_to="Foto/equipos", null= True, blank=True)
     def __str__(self):
         return self.name+" , tiene su base en "+self.base+", el jefe de equipo es: "+self.chief+", el chasis de este año se llama: "+self.chassis+", suministrador de motores: "+self.powerunit
 
@@ -30,6 +32,7 @@ class Pistas(models.Model):
     country=models.CharField(max_length=50)
     length=models.FloatField(max_length=50)
     record=models.FloatField(max_length=50)
+    Foto= models.ImageField(upload_to="Foto/pistas", null= True, blank=True)
     def __str__(self):
         return self.name+", Country: "+self.country+", Circuit Length:  "+str(self.length)+" km, "+"Record: "+str(self.record)
 

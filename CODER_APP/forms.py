@@ -18,6 +18,7 @@ class PilotosForm(forms.Form):
     podiums= forms.CharField()
     points= forms.CharField()
     Date=forms.DateField()
+    Foto= forms.ImageField(label='Foto')
 
 class PistasForm(forms.Form):
     name=forms.CharField()

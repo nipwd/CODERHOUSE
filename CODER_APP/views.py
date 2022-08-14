@@ -222,7 +222,7 @@ def editarPilotos(request,piloto_name):
             pilotos.save()
             return render(request,'templates/index.html',{"imagen_avatar":imagen_avatar})
     else:
-        form= PilotosForm(initial={"name":piloto.name,"team":piloto.country,"country":piloto.length,"podiums":piloto.record,"points":piloto.points,"Date":piloto.Date,"imagen_avatar":imagen_avatar})
+        form= PilotosForm(initial={"name":piloto.name,"team":piloto.country,"country":piloto.podiums,"podiums":piloto.points,"points":piloto.points,"Date":piloto.Date,"imagen_avatar":imagen_avatar})
     return render(request,'templates/CODER_APP/pilotos/editar_pilotos.html', {"formulario": form,"piloto_name":piloto_name,"imagen_avatar":imagen_avatar})
 
 
