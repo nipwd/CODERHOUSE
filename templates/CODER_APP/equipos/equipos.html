@@ -24,7 +24,33 @@
 <h4>
    
     <h3>{% for equipo in equipos %}</h3>
-    <li>{{ equipo }}</li>
+    <div style="overflow-x:auto;"></div>
+    <table style="max-width:100%;height:auto;">
+        <h1 style="background-color:DodgerBlue;">{{ equipo.name }}</h1>
+        <th>Origen</th>
+        <th>Jefe de Equipo</th>
+        <th>Chasis</th>
+        <th>Unidad de Potencia</th>
+        <style>
+            table, th, td {
+              border:3px solid black;
+            }
+            </style>
+            <body>
+            
+   
+ 
+        <tr>
+            <td>{{ equipo.base }}</td>
+            <td>{{ equipo.chief }}</td>
+            <td>{{ equipo.chassis }}</td>
+            <td>{{ equipo.powerunit }}</td>
+        </tr>
+          
+    </table>
+</div>
+    <img src="{{ equipo.Foto.url }}" alt="imagen" width="1000" height="1000" style="max-width:100%;height:auto;">
+    <hr>
     {% if request.user.is_superuser %} 
     <button>
         <a href="{% url 'eliminarEquipos' equipo.name %}" > Eliminar</a> 

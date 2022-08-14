@@ -24,8 +24,9 @@
 <h4>
 
     <h3>{% for piloto in pilotos %}</h3>
-    <table style="width:80%">
-        <th>Nombre</th>
+    <div style="overflow-x:auto;"></div>
+    <table style="max-width:100%;height:auto;">
+        <h1 style="background-color:DodgerBlue;">{{ piloto.name }}</h1>
         <th>Equipo</th>
         <th>Pais</th>
         <th>Podios</th>
@@ -33,7 +34,7 @@
         <th>Fecha Nacimiento</th>
         <style>
             table, th, td {
-              border:4px solid black;
+              border:3px solid black;
             }
             </style>
             <body>
@@ -41,18 +42,18 @@
    
  
         <tr>
-        <td>{{ piloto.name }}</td>
-        <td>{{ piloto.team }}</td>
-        <td>{{ piloto.country }}</td>
-        <td>{{ piloto.podiums }}</td>
-        <td>{{ piloto.points }}</td>
-        <td>{{ piloto.Date }}</td>
+            <td>{{ piloto.team }}</td>
+            <td>{{ piloto.country }}</td>
+            <td>{{ piloto.podiums }}</td>
+            <td>{{ piloto.points }}</td>
+            <td>{{ piloto.Date }}</td>
         </tr>
           
     </table>
-    <img src="{{ piloto.Foto.url }}" alt="imagen" width="1000" height="1000">
+</div>
+    <img src="{{ piloto.Foto.url }}" alt="imagen" width="1000" height="1000" style="max-width:100%;height:auto;">
 
-
+    <hr>
       
     {% if request.user.is_superuser %}
     <button>
