@@ -6,23 +6,47 @@
 {% block contenidoQueCambia %}
 
 <body>
-    <h3> Blog {{ blog_titulo }} </h3>
-   
-    -----> by {{ creador }},  at {{ fecha_post }}
-    {% if formulario.errors %}
+   <div style="overflow-x:auto;"></div>
+   <style>
+       table {
+         border-collapse: collapse;
+         width: 100%;
+       }
+       
+       th, td {
+         padding: 8px;
+         text-align: left;
+         border-bottom: 1px solid #DDD;
+       }
+       
+       tr:hover {background-color: #D6EEEE;}
+       </style>
+   <table style="max-width:100%;height:auto;">
+       <h1 style="background-color:DodgerBlue;">{{ blog_titulo}}</h1>
+       <th>By:  {{ creador }} at {{ fecha_post }}   </th>
+       <style>
+           table, th, td {
+             border:3px solid black;
+           }
+           </style>
+           <body>
+           
+  
+
+       <tr>
+           <td> <h4>{{ mensaje }}</h4></td>
+         </tr>
+         
+   </table>
+   <img src="{{ imagenBlog.url }}" alt="imagen" width="100%" height="100%" style="max-width:100%;height:auto;">
+
+
+
+
+{% if formulario.errors %}
        <p style="color:red">Hay algo mal</p>
     {% endif %}
     
-    <title>{{ titulo }}</title>
-       
-           <h4>{{ mensaje }}</h4>
-           
-
-           {{ date }}
-
-
-<img src="{{ imagenBlog.url }}" alt="imagen" width="800" height="800">
-
 </body>
 </html>
 {% endblock %}

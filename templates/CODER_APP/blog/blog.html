@@ -23,7 +23,48 @@
 </h4>
 <h4>
     <h3>{% for blg in blog %}</h3>
-    <li>{{ blg.titulo }}------> by {{ blg.user }}, at {{ blg.fecha_post }}</li>
+    <div style="overflow-x:auto;"></div>
+    <style>
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        th, td {
+          padding: 8px;
+          text-align: left;
+          border-bottom: 1px solid #DDD;
+        }
+        
+        tr:hover {background-color: #D6EEEE;}
+        </style>
+    <table style="max-width:100%;height:auto;">
+        <h1 style="background-color:DodgerBlue;">{{ blg.titulo }}</h1>
+        <th>By User:  {{ blg.user }}     <button>
+            <a href="{% url 'verblog' blg.titulo %}" > Leer</a> 
+        </button></th>
+        <style>
+            table, th, td {
+              border:3px solid black;
+            }
+            </style>
+            <body>
+            
+   
+ 
+        <tr>
+            <td>{{ blg.fecha_post }}</td>
+      
+        </tr>
+          
+    </table>
+</div>
+
+
+
+
+    
+  
     {% if request.user.username == blg.user.username or request.user.is_superuser %}
     <button>
         <a href="{% url 'eliminarblog' blg.titulo %}" > Eliminar </a> 
@@ -32,9 +73,7 @@
         <a href="{% url 'editarblog' blg.titulo %}" > Editar</a> 
     </button>
     {% endif %}
-    <button>
-        <a href="{% url 'verblog' blg.titulo %}" > Leer</a> 
-    </button>
+
     {% endfor %}
 
     <h4><p>Agregar Blog</p>
