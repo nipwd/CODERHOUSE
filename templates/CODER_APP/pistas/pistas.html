@@ -26,6 +26,20 @@
    <h3>{% for pista in pistas %}</h3>
     <div style="overflow-x:auto;"></div>
     <table style="max-width:100%;height:auto;">
+        <style>
+            table {
+              border-collapse: collapse;
+              width: 100%;
+            }
+            
+            th, td {
+              padding: 8px;
+              text-align: left;
+              border-bottom: 1px solid #DDD;
+            }
+            
+            tr:hover {background-color: #D6EEEE;}
+            </style>
         <h1 style="background-color:DodgerBlue;"> {{ pista.name }}</h1>
         <th>Pais</th>
         <th>Largo</th>
