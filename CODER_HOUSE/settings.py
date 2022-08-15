@@ -125,3 +125,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static/assets")
 DEFAULT_AUTO_FIELD='django.db.models.AutoField' 
 
 LOGIN_URL = '/login/'
+
+
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
