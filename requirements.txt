@@ -4,7 +4,6 @@ aiohttp==3.8.1
 aiosignal==1.2.0
 appdirs==1.4.4
 APScheduler==3.6.3
-arviz @ file:///home/conda/feedstock_root/build_artifacts/arviz_1633274821480/work
 asgiref==3.5.2
 astunparse==1.6.3
 async-generator==1.10
