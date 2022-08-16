@@ -5,7 +5,22 @@
 {% if pilotos %}
 <ul>
     <h3>{% for piloto in pilotos %}</h3>
-    <table style="width:80%">
+    <div style="overflow-x:auto;"></div>
+    <style>
+        table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        th, td {
+          padding: 8px;
+          text-align: left;
+          border-bottom: 1px solid #DDD;
+        }
+        
+        tr:hover {background-color: #D6EEEE;}
+        </style>
+    <table style="max-width:100%;height:auto;">
         <th>Nombre</th>
         <th>Equipo</th>
         <th>Pais</th>
