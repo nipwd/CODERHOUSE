@@ -129,3 +129,4 @@ LOGIN_URL = '/login/'
 
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+DISABLE_COLLECTSTATIC=1
