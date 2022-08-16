@@ -4,15 +4,44 @@
 <h1>Resultados de Busqueda</h1>
 {% if equipos %}
 <ul>
-    {% for equipo in equipos %}
-    <p>{{ equipo.name }} esta en la base de datos</p>
-    <br>
+    <h3>{% for equipo in equipos %}</h3>
+    <table style="width:80%">
+        <th>Nombre</th>
+        <th>Origen</th>
+        <th>Jefe de equipo</th>
+        <th>Chasis</th>
+        <th>PowerUnit</th>
+        <style>
+            table, th, td {
+              border:4px solid black;
+            }
+            </style>
+            <body>
+            
+   
+ 
+        <tr>
+        <td>{{ equipo.name }}</td>
+        <td>{{ equipo.base }}</td>
+        <td>{{ equipo.chief }}</td>
+        <td>{{ equipo.chassis }}</td>
+        <td>{{ equipo.powerunit }}</td>
+        </tr>
+          
+    </table>
+    <img src="{{ equipo.Foto.url }}" alt="imagen" width="1000" height="1000">
+
     {% endfor %}
 </ul>
 {% else %}
    <p>No Existe el Equipo</p>
 {% endif %}
 {% endblock %}
+
+
+
+
+
 
 
 
