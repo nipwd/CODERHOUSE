@@ -10,6 +10,7 @@ class EquiposForm(forms.Form):
     chief=forms.CharField()
     chassis=forms.CharField()
     powerunit=forms.CharField()
+    Foto= forms.ImageField(label='Foto')
 
 class PilotosForm(forms.Form):
     name=forms.CharField()
@@ -25,6 +26,7 @@ class PistasForm(forms.Form):
     country=forms.CharField()
     length=forms.CharField()
     record=forms.CharField()
+    Foto= forms.ImageField(label='Foto')
 
 class UserRegisterForm(UserCreationForm):
     username = forms.CharField()
